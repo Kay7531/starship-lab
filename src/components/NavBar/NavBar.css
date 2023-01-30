@@ -1,0 +1,15 @@
+header{
+    background-color: navy;
+    text-align: center;
+    height: 50px;
+   
+}
+
+#navhead{
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-size: 25px;
+   
+}
