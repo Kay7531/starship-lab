@@ -1,28 +1,42 @@
 import { useState, useEffect } from "react";
-import { getStarshipList } from "../../services/api-calls";
+import { Link } from "react-router-dom";
+import { getDetails, getStarshipList } from "../../services/api-calls";
 import { useLocation } from "react-router-dom";
 import StarshipList from "../StarshipList/StarshipList";
+import './StarshipPage.css'
 
 
-const StarshipPage = () => {
-    const[starshipPage, setStarshipPage] = useState({})
+const StarshipPage = (props) => {
+    const [starshipDetails, setStarshipDetails] = useState({})
     const location = useLocation()
+
     useEffect(() => {
-        const fetchPage = async () => {
-            const starshipData = await getStarshipList(location.state.starship.url)
-            setStarshipPage(starshipData)
+        const fetchDetails = async () => {
+            const starshipData = await getDetails(location.state.starship.url)
+            setStarshipDetails(starshipData)
+
         }
-        fetchPage()
+        fetchDetails()
+
     }, [location.state.starship.url])
 
- return (
-    <>
-    <h3>MODEL: {starshipPage.model}</h3>
-    </>
 
- );
+    return (
+        <>
+        <main>
+        <div className="deet">
+        <p>NAME: {starshipDetails.name} </p>
+        <p>MODEL: {starshipDetails.model}</p>
+        <Link id='return' to= "/starship-list" >RETURN</Link>
+       
+        </div>
+        </main>
+
+          
+        </>
+
+    );
 }
 
 export default StarshipPage;
 
-  

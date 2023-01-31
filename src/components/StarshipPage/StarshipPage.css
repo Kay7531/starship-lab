@@ -1,0 +1,27 @@
+main{
+    display:flex;
+    justify-content: center;
+}
+
+
+
+
+.deet{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 150px;
+    background-color: rgb(8, 47, 8);
+    color: white;
+    height: 150px;
+    width: 370px;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    font-size: 20px;
+    
+    
+}
+
+#return{
+    color:white;
+}
